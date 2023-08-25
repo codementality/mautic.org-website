@@ -1,0 +1,15 @@
+#!/bin/bash
+
+## Description: Initialize from Mautic profile
+## Usage: init
+## Example: init
+
+ddev start
+rm -Rf ./vendor
+ddev auth ssh
+ddev composer install -o
+ddev drush -y si mauticorg --account-pass=drupaladm1n --site-name="Mautic Community"
+ddev drush -y theme:enable mauticorg_base
+ddev drush -y config-set system.theme default mauticorg_base
+ddev drush cr
+ddev drush uli

@@ -18,8 +18,7 @@
 #/docroot/libraries/
 
 # Ignore sensitive information
-/docroot/sites/*/settings.php
-/docroot/sites/*/settings.local.php
+/docroot/sites/*/settings*.php
 
 # Ignore Drupal's file directory
 /docroot/sites/*/files/
@@ -78,3 +77,6 @@ auth.json
 /docroot/sites/default/*.local.php
 /docroot/sites/default/*.aliases.drushrc.php
 # Launchpad .gitignore end DO NOT REMOVE OR EDIT THIS LINE
+
+# DDEV
+/databases
