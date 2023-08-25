@@ -1,0 +1,13 @@
+#!/bin/bash
+
+## Description: Build the Mauthc theme
+## Usage: build:theme
+## Example: ddev build:theme
+
+cd /var/www/html/docroot/themes/custom/mauticorg_base
+rm -Rf node_modules
+npm install
+npm run postinstall
+npm run build
+cd /var/www/html
+drush cr

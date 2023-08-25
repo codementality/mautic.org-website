@@ -1,0 +1,33 @@
+#!/bin/bash
+
+## Description: Clean db for general population use
+## Usage: clean:db
+## Example: ddev clean:db
+
+ddev composer install -o
+## Sanitizes usernames, emails and other basic identifying information
+ddev drush -y sql:sanitize
+## Reset admin user password for local development
+ddev drush -y user:password admin drupaladm1n
+
+## create test users with roles for local development
+ddev drush -y user:create testeditor --password="testeditor" --mail="testeditor@example.com"
+ddev drush -y user:role:add "editor" testeditor
+ddev drush -y user:create testauthor --password="testauthor" --mail="testauthor@example.com"
+ddev drush -y user:role:add "author" testauthor
+
+# cache_bootstrap
+# cache_config
+# cache_container
+# cache_data
+# cache_default
+# cache_discovery
+# cache_dynamic_page_cache
+# cache_entity
+# cache_menu
+# cache_page
+# cache_render
+# cache_rest
+# cache_schema_metatag_cache
+# cache_toolbar
+# cachetags

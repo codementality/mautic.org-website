@@ -1,0 +1,7 @@
+#!/bin/bash
+
+## Description: Update existing local development for changes to config or theme
+## Usage: update
+## Example: update
+
+ddev drush cr

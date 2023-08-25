@@ -1,0 +1,11 @@
+#!/bin/bash
+
+## Description: Install from seed database
+## Usage: install
+## Example: install
+
+ddev composer install -o
+ddev import-db --file=./databases/mautic.org.dev.sql.gz
+ddev update
+ddev drush uli
+
